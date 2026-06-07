@@ -73,23 +73,29 @@ Pasos:
 
 Trigger: "esquema de colores por tier" / "paleta por tema" / "sugerencia de colores"
 
-Mostrar la siguiente tabla como punto de partida — los valores hex/decimal son sugerencias, no el estado actual (para el estado actual usar `audit.py`):
+Preguntar al usuario cuáles son los topics/tags de su dominio (los subdirectorios `wiki/<topic>/`
+y su tag asociado). Con esa lista, proponer un esquema usando la paleta siguiente como punto de
+partida — asignar un color distinto por topic, priorizando contraste entre temas relacionados:
 
-| Tier | Tag | Color sugerido | Hex | RGB dec |
-|------|-----|----------------|-----|---------|
-| MOC | `#moc` | Amarillo señal | `#E9F910` | 15333648 |
-| Fundamentos (T01) | `#paradigma` | Dorado | `#D6AD5C` | 14069084 |
-| Conjugados (T02–T03) | `#conjugado` | Cyan | `#00FFFF` | 65535 |
-| Regresión (T04) | `#regresion` | Verde | `#5CD65C` | 6084188 |
-| No paramétrico (T05) | `#no-parametrico` | Púrpura | `#AD5CD6` | 11361494 |
-| Redes (T06) | `#dag` | Rosa | `#D65CAD` | 14048429 |
-| Computación (T07) | `#rhat` | Naranja | `#F27C0D` | 15891469 |
-| Clasificación (T08) | `#e1071` | *(sin color — pendiente)* | — | — |
-| Optimización (T09) | `#adquisicion` | Azul acero | `#5CADD6` | 6073814 |
-| Inferencia predictiva (T10) | `#montecarlo` | Rosa cálido | `#D65C92` | 14048402 |
-| Laboratorios | `#laboratorio` | Verde oliva | `#ADD65C` | 11392604 |
-| Actividades | `#actividad` | Salmón | `#D65C5C` | 14048348 |
-| Foros | `#foro` | Rojo | `#DD0E0E` | 14487054 |
+| Rol semántico sugerido | Color | Hex | RGB dec |
+|---|---|---|---|
+| Índice / MOC | Amarillo señal | `#E9F910` | 15333648 |
+| Topic principal 1 | Dorado | `#D6AD5C` | 14069084 |
+| Topic principal 2 | Cyan | `#00FFFF` | 65535 |
+| Topic principal 3 | Verde | `#5CD65C` | 6084188 |
+| Topic principal 4 | Púrpura | `#AD5CD6` | 11361494 |
+| Topic principal 5 | Rosa | `#D65CAD` | 14048429 |
+| Topic principal 6 | Naranja | `#F27C0D` | 15891469 |
+| Topic práctico (labs) | Verde oliva | `#ADD65C` | 11392604 |
+| Actividades | Salmón | `#D65C5C` | 14048348 |
+| Foros / discusión | Rojo | `#DD0E0E` | 14487054 |
+| Topic auxiliar 1 | Azul acero | `#5CADD6` | 6073814 |
+| Topic auxiliar 2 | Rosa cálido | `#D65C92` | 14048402 |
+
+> **Nota para quien porta:** el template `graph-bayesiano.json` que instala `obsidian-vault-builder`
+> por defecto contiene colorGroups de un dominio concreto (estadística bayesiana). Elegir el
+> perfil `vacio` en Bootstrap —o borrar los colorGroups actuales— antes de aplicar el esquema
+> del dominio nuevo.
 
 Preguntar si se quiere aplicar todo el esquema, un subconjunto, o ajustar colores individuales.
 

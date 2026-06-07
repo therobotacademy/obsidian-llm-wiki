@@ -33,11 +33,16 @@ Construye el directorio `.obsidian/` completo (5 archivos JSON) para cualquier r
 7. Copiar template `core-plugins-<perfil>.json` → `core-plugins.json`
 8. Pedir template de grafo: `vacio` | `bayesiano` (default: `bayesiano`)
 9. Copiar template → `graph.json` (si `vacio`: solo campos de control sin colorGroups)
+
+   > **Nota:** el template `bayesiano` proviene del dominio original (estadística bayesiana) y
+   > contiene colorGroups específicos de ese curso. Para un dominio nuevo, elegir `vacio` y
+   > después configurar colores con `obsidian-graph-colors`.
+
 10. Pedir layout: `graph-center` | `editor-center` | `minimal` (default: `graph-center`)
 11. Pedir archivo inicial a mostrar (ruta relativa al vault; puede estar vacío)
 12. Ejecutar:
-    ```
-    python .claude/skills/obsidian-vault-builder/build_workspace.py \
+    ```powershell
+    python .claude/skills/obsidian-vault-builder/build_workspace.py `
       --layout <layout> [--file <ruta>] --out <destino>/.obsidian/workspace.json
     ```
 13. Verificar que los 5 archivos existen y son JSON válido

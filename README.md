@@ -37,11 +37,11 @@ wiki/.obsidian/graph.json                ← config (⚠ editar con Obsidian cer
 ## Quick start
 
 1. **Requisitos:** [Obsidian](https://obsidian.md), [Claude Code](https://claude.com/claude-code),
-   Python 3 (los scripts de los skills usan solo stdlib) y, opcional, `pdfplumber` para extraer PDFs
+   Python 3 con solo stdlib; instalar `pdfplumber` únicamente si hay PDFs en el corpus
    (`pip install pdfplumber`).
 2. Abre esta carpeta con Claude Code. Los tres skills se autodescubren en `.claude/skills/`.
 3. **Bootstrap del vault** (una vez): *"bootstrap vault"* → `obsidian-vault-builder` crea `wiki/` +
-   `.obsidian/` (te pregunta perfil de plugins y layout). Con Obsidian cerrado.
+   `.obsidian/` (te pregunta perfil de plugins, template de grafo y layout). Con Obsidian cerrado.
 4. **Ingesta** (por cada fuente): *"add this to the wiki"* / *"ingesta esta fuente"* →
    `karpathy-llm-wiki` extrae la fuente a `raw/`, compila el artículo en `wiki/` y actualiza
    `index.md` + `log.md`.

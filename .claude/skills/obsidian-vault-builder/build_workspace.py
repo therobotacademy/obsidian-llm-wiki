@@ -11,7 +11,7 @@ Uso:
 --file ruta relativa al vault del archivo a mostrar al abrir (opcional).
 
 Layouts:
-    graph-center  Graph View al centro, explorador en panel izquierdo (perfil del vault bayesiano)
+    graph-center  Graph View al centro, explorador de archivos en panel izquierdo
     editor-center Editor al centro, Graph View en panel derecho abierto
     minimal       Solo editor al centro, sin paneles laterales desplegados
 """

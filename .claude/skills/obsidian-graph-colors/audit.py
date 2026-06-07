@@ -132,7 +132,10 @@ def audit(wiki_root: Path) -> None:
 if __name__ == "__main__":
     args = sys.argv[1:]
     if "--wiki" in args:
-        wiki_root = Path(args[args.index("--wiki") + 1])
+        idx = args.index("--wiki") + 1
+        if idx >= len(args):
+            sys.exit("Error: --wiki requiere una ruta. Uso: python audit.py --wiki <ruta_wiki>")
+        wiki_root = Path(args[idx])
     else:
         wiki_root = find_wiki_root(Path.cwd())
 
