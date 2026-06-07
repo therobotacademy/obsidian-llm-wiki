@@ -1,0 +1,100 @@
+<svg width="864" height="348" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,'Segoe UI',sans-serif">
+  <defs>
+    <marker id="arr" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0 0,9 3.5,0 7" fill="#78909c"/>
+    </marker>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#00000018"/>
+    </filter>
+  </defs>
+
+  <rect width="864" height="348" rx="10" fill="#f1f3f4"/>
+  <rect width="864" height="30" rx="10" fill="#263238"/>
+  <rect y="20" width="864" height="10" fill="#263238"/>
+  <text x="432" y="19" text-anchor="middle" font-size="11" font-weight="700" fill="white">Las tres operaciones de karpathy-llm-wiki — Ingest · Query · Lint</text>
+
+  <!-- ===== INGEST ===== -->
+  <rect x="14" y="44" width="430" height="294" rx="9" fill="#fffde7" stroke="#f9a825" stroke-width="1.8" filter="url(#shadow)"/>
+  <rect x="14" y="44" width="430" height="24" rx="9" fill="#f57f17"/>
+  <rect x="14" y="56" width="430" height="12" fill="#f57f17"/>
+  <text x="229" y="61" text-anchor="middle" font-size="9" font-weight="700" fill="white">INGEST — «add to wiki»</text>
+
+  <rect x="30" y="80" width="180" height="52" rx="6" fill="#fff8e1" stroke="#ffd54f" stroke-width="1.2"/>
+  <text x="120" y="96" text-anchor="middle" font-size="8" font-weight="700" fill="#6d4c41">1 · Fetch → raw/</text>
+  <text x="120" y="108" text-anchor="middle" font-size="6.8" fill="#9e8a3a">extrae a texto (inmutable)</text>
+  <text x="120" y="122" text-anchor="middle" font-size="6.5" font-style="italic" fill="#c62828">✓ verifica estructura de la fuente</text>
+  <line x1="120" y1="132" x2="120" y2="144" stroke="#78909c" stroke-width="2" marker-end="url(#arr)"/>
+
+  <rect x="30" y="146" width="180" height="30" rx="6" fill="#f9a825"/>
+  <text x="120" y="165" text-anchor="middle" font-size="8" font-weight="700" fill="#3e2723">2 · Compile — ¿dónde encaja?</text>
+
+  <!-- branches -->
+  <line x1="120" y1="176" x2="120" y2="186" stroke="#78909c" stroke-width="1.6"/>
+  <line x1="70" y1="186" x2="380" y2="186" stroke="#78909c" stroke-width="1.6"/>
+  <line x1="70" y1="186" x2="70" y2="196" stroke="#78909c" stroke-width="1.6" marker-end="url(#arr)"/>
+  <line x1="225" y1="186" x2="225" y2="196" stroke="#78909c" stroke-width="1.6" marker-end="url(#arr)"/>
+  <line x1="380" y1="186" x2="380" y2="196" stroke="#78909c" stroke-width="1.6" marker-end="url(#arr)"/>
+  <rect x="26" y="198" width="92" height="44" rx="6" fill="#e8f5e9" stroke="#81c784"/>
+  <text x="72" y="214" text-anchor="middle" font-size="7" font-weight="700" fill="#2e7d32">misma tesis</text>
+  <text x="72" y="226" text-anchor="middle" font-size="6.5" fill="#388e3c">→ Merge en el</text>
+  <text x="72" y="236" text-anchor="middle" font-size="6.5" fill="#388e3c">artículo existente</text>
+  <rect x="179" y="198" width="92" height="44" rx="6" fill="#e3f2fd" stroke="#64b5f6"/>
+  <text x="225" y="214" text-anchor="middle" font-size="7" font-weight="700" fill="#1565c0">concepto nuevo</text>
+  <text x="225" y="226" text-anchor="middle" font-size="6.5" fill="#1976d2">→ New artículo</text>
+  <text x="225" y="236" text-anchor="middle" font-size="6.5" fill="#1976d2">(nombrado por concepto)</text>
+  <rect x="334" y="198" width="92" height="44" rx="6" fill="#f3e5f5" stroke="#ba68c8"/>
+  <text x="380" y="214" text-anchor="middle" font-size="7" font-weight="700" fill="#6a1b9a">varios topics</text>
+  <text x="380" y="226" text-anchor="middle" font-size="6.5" fill="#8e24aa">→ See Also</text>
+  <text x="380" y="236" text-anchor="middle" font-size="6.5" fill="#8e24aa">cross-references</text>
+
+  <line x1="225" y1="242" x2="225" y2="254" stroke="#78909c" stroke-width="2" marker-end="url(#arr)"/>
+  <rect x="30" y="256" width="180" height="30" rx="6" fill="#fff8e1" stroke="#ffd54f" stroke-width="1.2"/>
+  <text x="120" y="275" text-anchor="middle" font-size="7.5" font-weight="600" fill="#6d4c41">3 · Cascade (ripple en relacionados)</text>
+  <rect x="240" y="256" width="186" height="30" rx="6" fill="#fff3e0" stroke="#ffb74d" stroke-width="1.2"/>
+  <text x="333" y="270" text-anchor="middle" font-size="7.5" font-weight="700" fill="#e65100">4 · Post-ingest</text>
+  <text x="333" y="281" text-anchor="middle" font-size="6.8" fill="#bf6000">actualiza index.md + log.md (siempre)</text>
+  <line x1="210" y1="271" x2="238" y2="271" stroke="#78909c" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="229" y="304" text-anchor="middle" font-size="6.8" font-style="italic" fill="#9e8a3a">«Fetch y Compile: siempre los dos pasos, sin excepción»</text>
+  <text x="229" y="320" text-anchor="middle" font-size="6.5" font-style="italic" fill="#c62828">la verificación de estructura evita rótulos desplazados (p.ej. «ideas clave» del capítulo anterior)</text>
+
+  <!-- ===== QUERY ===== -->
+  <rect x="456" y="44" width="186" height="294" rx="9" fill="#e8f5e9" stroke="#43a047" stroke-width="1.6" filter="url(#shadow)"/>
+  <rect x="456" y="44" width="186" height="24" rx="9" fill="#2e7d32"/>
+  <rect x="456" y="56" width="186" height="12" fill="#2e7d32"/>
+  <text x="549" y="61" text-anchor="middle" font-size="9" font-weight="700" fill="white">QUERY — «¿qué sé de X?»</text>
+  <rect x="470" y="80" width="158" height="32" rx="6" fill="#ffffff" stroke="#a5d6a7"/>
+  <text x="549" y="100" text-anchor="middle" font-size="7.5" fill="#1b5e20">1 · leer wiki/index.md</text>
+  <line x1="549" y1="112" x2="549" y2="122" stroke="#78909c" stroke-width="1.8" marker-end="url(#arr)"/>
+  <rect x="470" y="124" width="158" height="32" rx="6" fill="#ffffff" stroke="#a5d6a7"/>
+  <text x="549" y="144" text-anchor="middle" font-size="7.5" fill="#1b5e20">2 · leer artículos relevantes</text>
+  <line x1="549" y1="156" x2="549" y2="166" stroke="#78909c" stroke-width="1.8" marker-end="url(#arr)"/>
+  <rect x="470" y="168" width="158" height="40" rx="6" fill="#ffffff" stroke="#a5d6a7"/>
+  <text x="549" y="184" text-anchor="middle" font-size="7.5" fill="#1b5e20">3 · sintetizar + CITAR</text>
+  <text x="549" y="197" text-anchor="middle" font-size="6.8" fill="#388e3c">wiki &gt; conocimiento de modelo</text>
+  <line x1="549" y1="208" x2="549" y2="218" stroke="#78909c" stroke-width="1.8" marker-end="url(#arr)"/>
+  <rect x="470" y="220" width="158" height="36" rx="6" fill="#f1f8e9" stroke="#c5e1a5" stroke-dasharray="5 3"/>
+  <text x="549" y="236" text-anchor="middle" font-size="7.5" fill="#558b2f">4 · (opcional) Archivar</text>
+  <text x="549" y="248" text-anchor="middle" font-size="6.8" fill="#7cb342">nueva página + index + log</text>
+  <text x="549" y="290" text-anchor="middle" font-size="6.8" font-style="italic" fill="#81c784">Query NO escribe ficheros</text>
+  <text x="549" y="304" text-anchor="middle" font-size="6.8" font-style="italic" fill="#81c784">(salvo que se pida archivar)</text>
+
+  <!-- ===== LINT ===== -->
+  <rect x="654" y="44" width="196" height="294" rx="9" fill="#eceff1" stroke="#78909c" stroke-width="1.6" filter="url(#shadow)"/>
+  <rect x="654" y="44" width="196" height="24" rx="9" fill="#546e7a"/>
+  <rect x="654" y="56" width="196" height="12" fill="#546e7a"/>
+  <text x="752" y="61" text-anchor="middle" font-size="9" font-weight="700" fill="white">LINT — calidad</text>
+  <rect x="666" y="80" width="172" height="112" rx="6" fill="#ffffff" stroke="#90caf9"/>
+  <text x="752" y="96" text-anchor="middle" font-size="7.5" font-weight="700" fill="#1565c0">Determinista (auto-fix)</text>
+  <text x="676" y="112" font-size="6.8" fill="#37474f">• consistencia del índice</text>
+  <text x="676" y="127" font-size="6.8" fill="#37474f">• enlaces internos rotos</text>
+  <text x="676" y="142" font-size="6.8" fill="#37474f">• refs a raw/ rotas</text>
+  <text x="676" y="157" font-size="6.8" fill="#37474f">• See Also obvios</text>
+  <text x="676" y="178" font-size="6.5" font-style="italic" fill="#90a4ae">1 match → corrige · 0/varios → reporta</text>
+  <rect x="666" y="198" width="172" height="92" rx="6" fill="#ffffff" stroke="#ef9a9a"/>
+  <text x="752" y="214" text-anchor="middle" font-size="7.5" font-weight="700" fill="#c62828">Heurístico (solo reporta)</text>
+  <text x="676" y="230" font-size="6.8" fill="#37474f">• contradicciones entre artículos</text>
+  <text x="676" y="245" font-size="6.8" fill="#37474f">• afirmaciones obsoletas</text>
+  <text x="676" y="260" font-size="6.8" fill="#37474f">• páginas huérfanas</text>
+  <text x="676" y="275" font-size="6.8" fill="#37474f">• conceptos sin página propia</text>
+  <text x="752" y="312" text-anchor="middle" font-size="6.8" font-style="italic" fill="#90a4ae">Post-lint: log «N issues, M fixed»</text>
+</svg>

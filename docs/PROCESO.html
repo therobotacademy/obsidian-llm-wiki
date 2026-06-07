@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>PROCESO.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> or <div class="page"></div> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="proceso-generador-de-wikis--obsidian--llm">Proceso: Generador de Wikis — Obsidian + LLM</h1>
+<p><strong>Skills involucrados:</strong> <code>obsidian-vault-builder</code> → <code>karpathy-llm-wiki</code> → <code>obsidian-graph-colors</code>
+<strong>Entrada:</strong> un corpus de fuentes de <em>cualquier</em> dominio · <strong>Salida:</strong> un vault de Obsidian navegable
+<strong>Última actualización:</strong> 2026-06-06</p>
+<blockquote>
+<p><strong>Receta portable.</strong> Este proceso compila un corpus de fuentes de <strong>cualquier dominio</strong> (un curso,
+un campo de investigación, un producto, un interés personal) en un vault de Obsidian navegable,
+encadenando tres skills acoplados por fichero. Nada de lo que sigue depende de un tema concreto:
+lo único que cambia entre wikis es el <em>contenido</em> del corpus y los <em>nombres</em> de topics/tags.
+<em>(Este repositorio es la generalización portable de un proceso construido originalmente para una
+asignatura universitaria, extraído como recurso reutilizable independiente.)</em></p>
+</blockquote>
+<hr>
+<h2 id="1-visión-general">1. Visión general</h2>
+<p>El proceso compila un <strong>corpus de fuentes</strong> (PDFs, DOCX, slides, capturas web, notas — lo que sea) en
+un <strong>vault de Obsidian</strong> navegable, y lo mantiene en el tiempo. El principio rector es el de
+Karpathy: <strong>«el LLM escribe y mantiene el wiki; el humano lee y pregunta»</strong>, y el wiki es un
+<strong>artefacto que se compone (compounding) con el tiempo</strong>.</p>
+<p><img src="svg/diag-01-pipeline.svg" alt="Pipeline del Generador de Wikis"></p>
+<p>Intervienen tres skills con roles temporales distintos, con <code>karpathy-llm-wiki</code> como <strong>punto de
+entrada y orquestador</strong> del ciclo de vida:</p>
+<ul>
+<li><strong><code>obsidian-vault-builder</code></strong> — <em>bootstrap (una vez)</em>: crea la estructura del vault y la
+configuración <code>.obsidian/</code> (5 archivos JSON) sin necesidad de abrir Obsidian.</li>
+<li><strong><code>karpathy-llm-wiki</code></strong> — <em>bucle recurrente</em>: ingiere cada fuente (una pasada por fuente),
+responde consultas (Query) y revisa la calidad (Lint). Es quien <strong>llama</strong> a los otros dos en los
+momentos que corresponde.</li>
+<li><strong><code>obsidian-graph-colors</code></strong> — <em>mantenimiento</em>: colorea el Graph view por los tags del frontmatter
+de los artículos.</li>
+</ul>
+<hr>
+<h2 id="2-arquitectura-de-artefactos">2. Arquitectura de artefactos</h2>
+<p>Cuatro capas, de la fuente inmutable a la configuración del vault. El <strong>acoplamiento es por fichero,
+no por código</strong>: ningún skill lee la salida en memoria del anterior, se comunican a través de
+artefactos persistidos en disco (<code>raw/</code> → <code>wiki/</code> → <code>.obsidian/graph.json</code>). Esto hace el proceso
+<strong>reanudable y auditable</strong>.</p>
+<p><img src="svg/diag-02-artefactos.svg" alt="Arquitectura de artefactos"></p>
+<table>
+<thead>
+<tr>
+<th>Capa</th>
+<th>Directorio</th>
+<th>Propietario</th>
+<th>Mutabilidad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Fuentes originales</strong></td>
+<td>el corpus del dominio (donde el usuario lo guarde)</td>
+<td>—</td>
+<td>🔒 inmutable (read-only)</td>
+</tr>
+<tr>
+<td><strong>Raw extraído</strong></td>
+<td><code>raw/&lt;topic&gt;/YYYY-MM-DD-slug.md</code></td>
+<td><code>karpathy-llm-wiki</code> (crea)</td>
+<td>🔒 inmutable una vez creado</td>
+</tr>
+<tr>
+<td><strong>Wiki (artículos)</strong></td>
+<td><code>wiki/&lt;topic&gt;/articulo.md</code> + <code>wiki/index.md</code> + <code>wiki/log.md</code></td>
+<td><code>karpathy-llm-wiki</code> (full ownership)</td>
+<td>editable por el skill</td>
+</tr>
+<tr>
+<td><strong>Config Obsidian</strong></td>
+<td><code>wiki/.obsidian/</code> (<code>graph.json</code>…)</td>
+<td><code>obsidian-vault-builder</code> (crea) · <code>obsidian-graph-colors</code> (colores)</td>
+<td>editable (⚠ Obsidian cerrado)</td>
+</tr>
+</tbody>
+</table>
+<p>Reglas de capa: el corpus de fuentes <strong>nunca</strong> se modifica; el <code>raw/</code> es inmutable una vez creado
+(el wiki se <strong>recompone desde <code>raw/</code></strong>, nunca se re-extrae el binario); <code>wiki/</code> es propiedad plena
+del skill nuclear; cada <strong>Ingest</strong> actualiza <strong>siempre</strong> <code>index.md</code> + <code>log.md</code>. El soporte de un
+solo nivel de subdirectorios de topic es deliberado.</p>
+<blockquote>
+<p><strong>La capa <code>raw/</code> extraída</strong> es la diferencia clave respecto a un wiki ingenuo: separa la
+<em>extracción</em> (de un PDF opaco a texto) de la <em>compilación</em> (de texto a artículo). Si más adelante
+cambia el criterio editorial, el wiki se reconstruye desde <code>raw/</code> sin volver a tocar los binarios.</p>
+</blockquote>
+<hr>
+<h2 id="3-las-tres-operaciones-de-karpathy-llm-wiki">3. Las tres operaciones de <code>karpathy-llm-wiki</code></h2>
+<p>El skill nuclear tiene tres operaciones; la más rica es <strong>Ingest</strong>, con su árbol de decisión de
+compilación.</p>
+<p><img src="svg/diag-03-operaciones.svg" alt="Operaciones Ingest / Query / Lint"></p>
+<h3 id="ingest--add-to-wiki">Ingest — «add to wiki»</h3>
+<p><strong>Fetch</strong> (extrae la fuente a texto y la guarda en <code>raw/</code>, inmutable; <strong>verifica antes la estructura
+de la fuente</strong> — que los rótulos de sección describan de verdad lo que hay debajo) → <strong>Compile</strong>
+(decide dónde encaja: <em>misma tesis</em> → merge en el artículo existente · <em>concepto nuevo</em> → artículo
+nuevo nombrado por el concepto · <em>varios topics</em> → cross-references en See Also) → <strong>Cascade</strong>
+(actualiza artículos afectados) → <strong>Post-ingest</strong> (actualiza <code>index.md</code> + <code>log.md</code>). Fetch y Compile
+son <strong>siempre los dos pasos, sin excepción</strong>.</p>
+<h3 id="query--qué-sé-de-x">Query — «¿qué sé de X?»</h3>
+<p>Lee <code>index.md</code> → lee los artículos relevantes → <strong>sintetiza y cita</strong> (<code>wiki &gt;</code> conocimiento de
+entrenamiento). <strong>No escribe ficheros</strong> salvo que se pida <strong>archivar</strong> la respuesta.</p>
+<h3 id="lint--calidad">Lint — calidad</h3>
+<ul>
+<li><strong>Determinista (auto-fix):</strong> consistencia del índice, enlaces internos rotos, refs a <code>raw/</code>
+rotas, See Also obvios (1 match → corrige; 0/varios → reporta).</li>
+<li><strong>Heurístico (solo reporta):</strong> contradicciones entre artículos, afirmaciones obsoletas, páginas
+huérfanas, conceptos sin página propia.</li>
+</ul>
+<hr>
+<h2 id="4-forma-del-proceso-no-es-un-pipeline-lineal">4. Forma del proceso (no es un pipeline lineal)</h2>
+<p>A diferencia de una tubería lineal, este proceso tiene tres cadencias distintas:</p>
+<ol>
+<li><strong>Bootstrap (una vez):</strong> <code>obsidian-vault-builder</code> prepara el vault. No se repite.</li>
+<li><strong>Bucle de ingesta (recurrente):</strong> <code>karpathy-llm-wiki</code> ejecuta Ingest <strong>una vez por cada fuente</strong>.
+El wiki crece de forma incremental.</li>
+<li><strong>Mantenimiento (bajo demanda):</strong> <code>obsidian-graph-colors</code> recolorea el grafo; <code>karpathy</code> hace
+Lint y responde Query.</li>
+</ol>
+<p>El acoplamiento sigue siendo <strong>por fichero</strong>, pero la topología es <strong>setup + loop + maintenance</strong>,
+no una tubería de una sola pasada (es la tercera topología reconocida por <code>build-single-process</code>).</p>
+<hr>
+<h2 id="5-puerta-humana-difusa">5. Puerta humana difusa</h2>
+<p>La puerta humana de este proceso <strong>no es una firma sobre un entregable</strong>, sino el <strong>consumo
+continuo</strong>: el humano <strong>lee</strong> el wiki y <strong>pregunta</strong> (Query); sus preguntas y lagunas <strong>guían qué
+ingestar a continuación</strong>. Es la forma más laxa de puerta humana, pero cumple el mismo principio: el
+humano dirige, el LLM ejecuta.</p>
+<hr>
+<h2 id="6-reglas-de-obsidian-capa-de-configuración">6. Reglas de Obsidian (capa de configuración)</h2>
+<ul>
+<li><strong><code>graph.json</code></strong>: los <code>colorGroups</code> usan queries por tag (<code>tag:#&lt;topic&gt;</code>) y color en RGB
+<strong>decimal</strong> (<code>R×65536 + G×256 + B</code>). Los tags vienen del frontmatter de los artículos, así que
+<strong>etiquetar de forma consistente</strong> es lo que hace funcionar el coloreado.</li>
+<li><strong>Obsidian debe estar cerrado</strong> al editar <code>graph.json</code> externamente: si está abierto, vuelca su
+estado en memoria al disco y revierte el cambio externo.</li>
+<li><strong><code>workspace.json</code> no se edita externamente</strong>: Obsidian genera IDs y textos con tildes; un
+<code>workspace.json</code> externo mal formado hace que Obsidian lo rechace y resetee también <code>graph.json</code>.
+Por eso <code>obsidian-vault-builder</code> lo genera siempre con un script (<code>build_workspace.py</code>), nunca a
+mano.</li>
+</ul>
+<hr>
+<h2 id="7-portar-a-un-dominio-nuevo-checklist">7. Portar a un dominio nuevo (checklist)</h2>
+<p>Aquí está el valor de la versión «externa»: para levantar un wiki de un tema nuevo se reutiliza la
+receta <strong>sin cambios</strong>, recorriendo seis pasos.</p>
+<p><img src="svg/diag-04-portar.svg" alt="Checklist de portabilidad"></p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Paso</th>
+<th>Actor</th>
+<th>Detalle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Definir topics</strong></td>
+<td>humano (prep)</td>
+<td>subdirectorios <code>wiki/&lt;topic&gt;/</code> (un nivel) y <strong>un tag por topic</strong></td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Bootstrap del vault</strong></td>
+<td><code>obsidian-vault-builder</code></td>
+<td>crea <code>wiki/</code> + <code>.obsidian/</code>; elige perfil de plugins y layout</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Reunir el corpus</strong></td>
+<td>humano (prep)</td>
+<td>originales del dominio; se mantienen <strong>inmutables</strong></td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Ingesta iterativa</strong></td>
+<td><code>karpathy-llm-wiki</code> ↻</td>
+<td>una pasada Fetch+Compile por fuente; el wiki se compone</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Tag + color</strong></td>
+<td><code>obsidian-graph-colors</code></td>
+<td>tags consistentes por topic → <code>colorGroups</code> en <code>graph.json</code></td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Consumir</strong></td>
+<td><code>karpathy</code> + 👤</td>
+<td>Query para responder, Lint para higiene; las lagunas realimentan la ingesta</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Ninguno de los seis pasos depende del dominio concreto.</strong> Lo único que cambia entre un wiki de
+biología molecular y uno de, por ejemplo, derecho mercantil, es el <em>contenido</em> del corpus y los
+<em>nombres</em> de los topics/tags — nunca la mecánica.</p>
+<hr>
+<h2 id="8-referencia-rápida-de-triggers">8. Referencia rápida de triggers</h2>
+<table>
+<thead>
+<tr>
+<th>Skill</th>
+<th>Trigger</th>
+<th>Acción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>obsidian-vault-builder</code></td>
+<td>&quot;bootstrap vault&quot; / &quot;crear vault&quot;</td>
+<td>Crea <code>wiki/</code> + <code>.obsidian/</code></td>
+</tr>
+<tr>
+<td><code>karpathy-llm-wiki</code></td>
+<td>&quot;build a wiki&quot; / &quot;add to wiki&quot; / &quot;ingesta esta fuente&quot;</td>
+<td>Fetch + Compile + Cascade + index/log</td>
+</tr>
+<tr>
+<td><code>karpathy-llm-wiki</code></td>
+<td>&quot;what do I know about X?&quot; / &quot;¿qué sé de X?&quot;</td>
+<td>Query: sintetiza y cita (no escribe)</td>
+</tr>
+<tr>
+<td><code>karpathy-llm-wiki</code></td>
+<td>&quot;lint del wiki&quot;</td>
+<td>Auto-fix determinista + reporte heurístico</td>
+</tr>
+<tr>
+<td><code>obsidian-graph-colors</code></td>
+<td>&quot;/graph-colors&quot; / &quot;colorear el grafo&quot;</td>
+<td>Edita <code>graph.json</code> por tags (Obsidian cerrado)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="9-limitaciones-conocidas-y-decisiones-de-diseño">9. Limitaciones conocidas y decisiones de diseño</h2>
+<table>
+<thead>
+<tr>
+<th>Aspecto</th>
+<th>Decisión</th>
+<th>Razón</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>raw/</code> separado del corpus</strong></td>
+<td>Capa intermedia de texto extraído, inmutable</td>
+<td>Trazabilidad fuente → artículo; el wiki se recompone sin re-extraer</td>
+</tr>
+<tr>
+<td><strong>1 nivel de subdirs en <code>wiki/</code></strong></td>
+<td>Sin anidamiento profundo</td>
+<td>Simplicidad de navegación e índice</td>
+</tr>
+<tr>
+<td><strong>Bootstrap único</strong></td>
+<td><code>obsidian-vault-builder</code> no se repite</td>
+<td>El vault se crea una vez; luego solo crece</td>
+</tr>
+<tr>
+<td><strong>Puerta humana difusa</strong></td>
+<td>Lectura/Query en lugar de firma</td>
+<td>El wiki es consumo continuo, no un entregable puntual</td>
+</tr>
+<tr>
+<td><strong>Verificación de estructura en Fetch</strong></td>
+<td>Comprobar que los rótulos describen el contenido real</td>
+<td>Evita arrastrar rótulos desplazados (p.ej. «ideas clave» del capítulo anterior)</td>
+</tr>
+<tr>
+<td><strong>Obsidian cerrado al editar <code>graph.json</code></strong></td>
+<td>Restricción operativa</td>
+<td>Obsidian revierte cambios externos si está abierto</td>
+</tr>
+<tr>
+<td><strong><code>workspace.json</code> no se toca</strong></td>
+<td>Solo Obsidian / el script lo gestionan</td>
+<td>Evita resets de configuración</td>
+</tr>
+<tr>
+<td><strong><code>karpathy</code> como orquestador</strong></td>
+<td>Punto de entrada único que delega bootstrap y colores</td>
+<td>Los tres skills siguen modulares, acoplados solo por fichero</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><em>Diagramas en <code>docs/svg/</code>. Skills en
+<code>.claude/skills/{karpathy-llm-wiki,obsidian-vault-builder,obsidian-graph-colors}/</code>.
+Receta portable y domain-agnostic: ver el checklist de §7 para aplicarla a un dominio nuevo.</em></p>
+
+</body>
+</html>

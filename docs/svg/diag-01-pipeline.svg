@@ -1,0 +1,93 @@
+<svg width="940" height="346" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,'Segoe UI',sans-serif">
+  <defs>
+    <marker id="arr" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0 0,9 3.5,0 7" fill="#78909c"/>
+    </marker>
+    <marker id="arrA" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0 0,9 3.5,0 7" fill="#f9a825"/>
+    </marker>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#00000018"/>
+    </filter>
+  </defs>
+
+  <rect width="940" height="346" rx="10" fill="#f1f3f4"/>
+  <rect width="940" height="30" rx="10" fill="#263238"/>
+  <rect y="20" width="940" height="10" fill="#263238"/>
+  <text x="470" y="19" text-anchor="middle" font-size="11" font-weight="700" fill="white">Pipeline — Generador de Wikis · Obsidian + LLM (receta portable · cualquier dominio)</text>
+
+  <!-- Fuentes -->
+  <rect x="16" y="88" width="118" height="96" rx="8" fill="#eceff1" stroke="#90a4ae" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="16" y="88" width="118" height="22" rx="8" fill="#546e7a"/>
+  <rect x="16" y="100" width="118" height="10" fill="#546e7a"/>
+  <text x="75" y="103" text-anchor="middle" font-size="8" font-weight="700" fill="white">FUENTES 🔒</text>
+  <text x="75" y="126" text-anchor="middle" font-size="7" fill="#455a64">corpus original</text>
+  <text x="75" y="138" text-anchor="middle" font-size="7" fill="#455a64">PDF · DOCX · web</text>
+  <text x="75" y="156" text-anchor="middle" font-size="7" fill="#455a64">slides · notas</text>
+  <text x="75" y="174" text-anchor="middle" font-size="7" fill="#90a4ae">read-only</text>
+
+  <!-- Fase 0 · Bootstrap (1 vez) -->
+  <rect x="150" y="70" width="150" height="132" rx="9" fill="#ffffff" stroke="#b0bec5" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="150" y="70" width="150" height="22" rx="9" fill="#37474f"/>
+  <rect x="150" y="82" width="150" height="10" fill="#37474f"/>
+  <text x="225" y="85" text-anchor="middle" font-size="8.5" font-weight="700" fill="white">0 · Bootstrap (1 vez)</text>
+  <rect x="162" y="104" width="126" height="78" rx="6" fill="#f9a825"/>
+  <text x="225" y="130" text-anchor="middle" font-size="8" font-weight="700" fill="#3e2723">obsidian-</text>
+  <text x="225" y="143" text-anchor="middle" font-size="8" font-weight="700" fill="#3e2723">vault-builder</text>
+  <text x="225" y="160" text-anchor="middle" font-size="6.5" fill="#5d4037">crea wiki/ +</text>
+  <text x="225" y="171" text-anchor="middle" font-size="6.5" fill="#5d4037">.obsidian/ (config)</text>
+
+  <!-- Fase 1 · Ingesta (recurrente) -->
+  <rect x="318" y="70" width="276" height="132" rx="9" fill="#ffffff" stroke="#b0bec5" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="318" y="70" width="276" height="22" rx="9" fill="#37474f"/>
+  <rect x="318" y="82" width="276" height="10" fill="#37474f"/>
+  <text x="456" y="85" text-anchor="middle" font-size="8.5" font-weight="700" fill="white">1 · Ingesta — karpathy-llm-wiki  ↻</text>
+  <rect x="330" y="104" width="120" height="40" rx="6" fill="#f9a825"/>
+  <text x="390" y="121" text-anchor="middle" font-size="7.5" font-weight="600" fill="#3e2723">Fetch → raw/</text>
+  <text x="390" y="134" text-anchor="middle" font-size="6.5" fill="#5d4037">extrae a texto (inmutable)</text>
+  <rect x="462" y="104" width="120" height="40" rx="6" fill="#f9a825"/>
+  <text x="522" y="121" text-anchor="middle" font-size="7.5" font-weight="600" fill="#3e2723">Compile → wiki/</text>
+  <text x="522" y="134" text-anchor="middle" font-size="6.5" fill="#5d4037">artículo &lt;topic&gt;/</text>
+  <rect x="330" y="150" width="252" height="34" rx="6" fill="#fff8e1" stroke="#ffd54f" stroke-width="1.2"/>
+  <text x="456" y="164" text-anchor="middle" font-size="7" font-weight="600" fill="#6d4c41">Cascade + Post-ingest: index.md · log.md</text>
+  <text x="456" y="176" text-anchor="middle" font-size="6.5" fill="#9e8a3a">↻ una pasada por cada fuente</text>
+
+  <!-- Fase 2 · Mantenimiento -->
+  <rect x="612" y="70" width="158" height="132" rx="9" fill="#ffffff" stroke="#b0bec5" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="612" y="70" width="158" height="22" rx="9" fill="#37474f"/>
+  <rect x="612" y="82" width="158" height="10" fill="#37474f"/>
+  <text x="691" y="85" text-anchor="middle" font-size="8.5" font-weight="700" fill="white">2 · Mantenimiento</text>
+  <rect x="624" y="104" width="134" height="40" rx="6" fill="#f9a825"/>
+  <text x="691" y="121" text-anchor="middle" font-size="7.5" font-weight="600" fill="#3e2723">obsidian-graph-colors</text>
+  <text x="691" y="134" text-anchor="middle" font-size="6.5" fill="#5d4037">colorea graph.json (tags)</text>
+  <rect x="624" y="150" width="134" height="34" rx="6" fill="#f9a825"/>
+  <text x="691" y="167" text-anchor="middle" font-size="7.5" font-weight="600" fill="#3e2723">karpathy · Lint</text>
+  <text x="691" y="178" text-anchor="middle" font-size="6.5" fill="#5d4037">índice/links/huérfanos</text>
+
+  <!-- Entregable -->
+  <rect x="788" y="70" width="138" height="132" rx="9" fill="#e8f5e9" stroke="#43a047" stroke-width="1.6" filter="url(#shadow)"/>
+  <text x="857" y="110" text-anchor="middle" font-size="20">📚</text>
+  <text x="857" y="132" text-anchor="middle" font-size="8.5" font-weight="700" fill="#1b5e20">wiki/ vault</text>
+  <text x="857" y="148" text-anchor="middle" font-size="7" fill="#388e3c">artículos + index</text>
+  <text x="857" y="160" text-anchor="middle" font-size="7" fill="#388e3c">log · See Also</text>
+  <text x="857" y="172" text-anchor="middle" font-size="7" fill="#388e3c">graph coloreado</text>
+  <text x="857" y="188" text-anchor="middle" font-size="6.5" fill="#66bb6a">Obsidian</text>
+
+  <!-- flow arrows -->
+  <line x1="134" y1="136" x2="148" y2="136" stroke="#78909c" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="300" y1="136" x2="316" y2="136" stroke="#78909c" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="450" y1="124" x2="460" y2="124" stroke="#bdb76b" stroke-width="2" marker-end="url(#arrA)"/>
+  <line x1="594" y1="136" x2="610" y2="136" stroke="#78909c" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="770" y1="136" x2="786" y2="136" stroke="#78909c" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="308" y="60" text-anchor="middle" font-size="6.5" fill="#90a4ae">vault listo</text>
+
+  <!-- Puerta humana (difusa) · Query -->
+  <rect x="318" y="234" width="608" height="44" rx="9" fill="#fff8e1" stroke="#ffb300" stroke-width="1.8"/>
+  <text x="338" y="252" font-size="9" font-weight="700" fill="#e65100">👤 Puerta humana (difusa) · Query</text>
+  <text x="338" y="268" font-size="7.5" fill="#5d4037">«El LLM escribe y mantiene el wiki; el humano lee y pregunta» — el humano consume el vault (no firma un entregable); sus preguntas guían qué ingestar.</text>
+  <line x1="857" y1="202" x2="857" y2="232" stroke="#ffb300" stroke-width="2" marker-end="url(#arrA)"/>
+
+  <!-- nota -->
+  <text x="225" y="298" font-size="7" font-style="italic" fill="#90a4ae">Forma del proceso: bootstrap (1 vez) → bucle de ingesta (recurrente, por fuente) → mantenimiento. No es un pipeline estrictamente lineal.</text>
+  <text x="225" y="312" font-size="7" font-style="italic" fill="#b0bec5">Receta portable: el mismo encadenamiento sirve para cualquier dominio (curso, campo de investigación, producto, interés personal).</text>
+</svg>
