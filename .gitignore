@@ -1,0 +1,12 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Obsidian — estado de UI local (lo regenera Obsidian / build_workspace.py)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.trash/
+
+# SO
+.DS_Store
+Thumbs.db
