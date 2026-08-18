@@ -5,7 +5,10 @@ __pycache__/
 # Obsidian — estado de UI local (lo regenera Obsidian / build_workspace.py)
 .obsidian/workspace.json
 .obsidian/workspace-mobile.json
+**/.obsidian/workspace.json
+**/.obsidian/workspace-mobile.json
 .trash/
+**/.trash/
 
 # SO
 .DS_Store
