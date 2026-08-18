@@ -19,7 +19,7 @@ Construye el directorio `.obsidian/` completo (5 archivos JSON) para cualquier r
 
 ## Operaciones
 
-### 1. Bootstrap — crear vault nuevo
+### 1. Bootstrap — crear vault nuevo (OKF v0.2 Compatible)
 
 **Trigger:** "bootstrap vault", "crear vault", "nuevo vault obsidian"
 
@@ -27,7 +27,7 @@ Construye el directorio `.obsidian/` completo (5 archivos JSON) para cualquier r
 1. Advertir: **Obsidian debe estar cerrado** antes de escribir — esperar confirmación
 2. Verificar que el path destino existe; si no, crearlo
 3. Crear `<destino>/.obsidian/` si no existe
-4. Escribir `app.json` → `{}`
+4. Copiar template `templates/app.json` → `<destino>/.obsidian/app.json` (establece `"useMarkdownLinks": true` para enlaces OKF estándar)
 5. Escribir `appearance.json` → `{}`
 6. Pedir perfil de plugins: `minimal` | `full` | `bayesiano` (default: `bayesiano`)
 7. Copiar template `core-plugins-<perfil>.json` → `core-plugins.json`
@@ -45,8 +45,21 @@ Construye el directorio `.obsidian/` completo (5 archivos JSON) para cualquier r
     python .claude/skills/obsidian-vault-builder/build_workspace.py `
       --layout <layout> [--file <ruta>] --out <destino>/.obsidian/workspace.json
     ```
-13. Verificar que los 5 archivos existen y son JSON válido
-14. Reportar resumen: archivos creados, perfil elegido, layout
+13. Inicializar archivos reservados OKF v0.2 en la raíz del vault (`<destino>/`):
+    - Si no existe `index.md`: crear `index.md` con frontmatter `okf_version: "0.2"`:
+      ```markdown
+      ---
+      okf_version: "0.2"
+      ---
+
+      # Topics
+      ```
+    - Si no existe `log.md`: crear `log.md` inicial:
+      ```markdown
+      # Directory Update Log
+      ```
+14. Verificar que los 5 archivos `.obsidian/` y los archivos reservados OKF existen y son válidos
+15. Reportar resumen: archivos creados, perfil elegido, layout y conformidad OKF v0.2
 
 **Constraint:** Si ya existe `.obsidian/` con contenido, preguntar antes de sobrescribir.
 

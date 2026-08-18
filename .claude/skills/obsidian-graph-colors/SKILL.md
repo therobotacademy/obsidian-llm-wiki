@@ -18,13 +18,16 @@ python .claude/skills/obsidian-graph-colors/audit.py
 El script (`audit.py`, mismo directorio que este SKILL.md) produce automáticamente:
 
 1. Tabla de estado: query · hex · RGB decimal · artículos que coinciden
-2. Detección de anomalías:
+2. Auditoría de conformidad OKF v0.2 (valida `type:`, frontmatter YAML, `sources`, y footnotes)
+3. Detección de anomalías de grafo:
    - **[SIN COLOR]** — tags presentes en wiki pero sin grupo de color
    - **[HUÉRFANO]** — grupos cuya query no coincide con ningún artículo
    - **[ESPACIOS]** — queries con espacios extra (pueden fallar en algunas versiones)
    - **[DUPLICADO]** — mismo hex asignado a varios grupos distintos
 
-Argumento opcional `--wiki <ruta>` para apuntar a un vault distinto del directorio de trabajo.
+Argumentos opcionales:
+- `--wiki <ruta>` para apuntar a un vault distinto del directorio de trabajo.
+- `--okf-check` para ejecutar la auditoría de conformidad OKF v0.2.
 
 Si `colorGroups` está vacío, indicarlo y ofrecer el esquema de colores por tier (operación 4).
 
